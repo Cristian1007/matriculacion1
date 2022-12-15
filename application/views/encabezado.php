@@ -30,6 +30,33 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js">
 
     </script>
+    <!-- //importacion sweetalert2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.15/sweetalert2.css" integrity="sha512-JzSVRb7c802/njMbV97pjo1wuJAE/6v9CvthGTDxiaZij/TFpPQmQPTcdXyUVucsvLtJBT6YwRb5LhVxX3pQHQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.15/sweetalert2.js" integrity="sha512-9V+5wAdU/RmYn1TP+MbEp5Qy9sCDYmvD2/Ub8sZAoWE2o6QTLsKx/gigfub/DlOKAByfhfxG5VKSXtDlWTcBWQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <?php if ($this->session->flashdata('confirmacion')): ?>
+      <script type="text/javascript">
+      $(document).ready(function(){
+        Swal.fire(
+          'CONFIRMACIÓN', //titulo
+          '<?php echo $this->session->flashdata('confirmacion') ?>',
+          'success'
+        )
+      });
+
+      </script>
+    <?php endif; ?>
+    <?php if ($this->session->flashdata('error')): ?>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          Swal.fire(
+            'ERROR', //titulo
+            '<?php echo $this->session->flashdata('error'); ?>', //Contenido o mensaje
+            'error' //Tipo de alerta
+          )
+        });
+      </script>
+    <?php endif; ?>
   </head>
   <body style="background:url('https://2.bp.blogspot.com/-cFVxsHASQNI/TrxJlBgWJnI/AAAAAAAAAVE/Kk9n6bcENyc/s1600/fondo+azul.jpg') no-repeat; background-size: cover ;">
     <div class="text-center">

@@ -66,19 +66,20 @@ class Estudiantes extends CI_Controller {
 
 		 print_r($datosNuevoEstudiante);
 		 if ($this->estudiante->insertar($datosNuevoEstudiante)) {
-		 	redirect('estudiantes/index');
+		 		$this->session->set_flashdata('confirmacion', 'Estudiante insertado exitosamente');
 		}else {
-			echo " <h1>ERROR</h1>";
+			$this->session->set_flashdata('error','Error al insertar verifique de nuevo');
 		}
+		redirect('estudiantes/index');
 	}
 ///generar una funcion para eliminar Estudiantes
   public function borrar($id_est){
 		if ($this->estudiante->eliminarPorId($id_est)) {
-			redirect('estudiantes/index');
+			$this->session->set_flashdata('confirmacion', 'Estudiante borrado exitosamente');
 		} else {
-			echo "error al eliminar :()";
+			$this->session->set_flashdata('error','Error al ELIMINAR intente de nuevo');
 		}
-
+		redirect('estudiantes/index');
 
 	}
 //actualizarDATOA
